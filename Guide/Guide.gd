@@ -18,5 +18,22 @@ func _ready():
 		i.connect("page_clicked", self, "page_clicked")
 
 var flipping := false
+const first_page := 0
+
 func page_clicked(page_num: int) -> void:
-	print(page_num)
+	if page_num == first_page + 1:
+		pass
+	else:
+		if page_num % 2 == 0:
+			var page_flipper = $GuideTopPoint/PageFlipper
+			pages_refs[page_num + 2].rect_scale.x = 1
+			page_flipper.interpolate_property(pages_refs[page_num], "rect_scale:x", 
+			pages_refs[page_num].rect_scale.x, 0, 0.25)
+			page_flipper.interpolate_property(pages_refs[page_num+1], "rect_scale:x", 
+			pages_refs[page_num + 1].rect_scale.x, 1, 0.25, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 0.25)
+			page_flipper.start()
+		else:
+			pass
+	
+func _physics_process(delta):
+	pass

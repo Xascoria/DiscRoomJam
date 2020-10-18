@@ -48,3 +48,4 @@ func transition_to(target_coord: Vector2) -> void:
 
 func _on_TransitionTween_tween_all_completed():
 	in_transition = false
+
