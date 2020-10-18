@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://GuidePages/PageScript.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Resources/NotoSerifJP-Regular.otf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+font_data = SubResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[node name="Panel" type="Panel"]
+anchor_right = 0.3
+anchor_bottom = 0.756
+margin_right = 3.05176e-05
+margin_bottom = -0.320007
+rect_min_size = Vector2( 384, 544 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Content" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -88.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "4) 単に「アニメ」という場合は、セルアニメーション（セルアニメ）のことを指していることが多い。当記事では主に日本で製作された商業用セルアニメーションなど通俗的・一般的な意味での「アニメ」について記載する（デジタル化と3DCGについては本記事内で後述）。
+
+5) 主な作品は、『アニメ作品一覧』を参照。
+
+6)「文化芸術基本法」ではメディア芸術、関連法の「コンテンツの創造、保護及び活用の促進に関する法律」によるとコンテンツの一つと定義されており、いずれにおいても「アニメ」と略されてはおらず、「アニメーション」と正式表記されている。別定義として、多角的芸術分類観点において、美術（映像を含まない）、映像、音楽、文学、芸能の総合芸術とされるときもある。"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -3.05176e-05
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_page_pressed" binds= [ 2 ]]

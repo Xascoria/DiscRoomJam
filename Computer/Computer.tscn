@@ -1,0 +1,182 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Computer/Computer.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Resources/Modeseven-L3n5.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 15
+font_data = SubResource( 4 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://Resources/Modeseven-L3n5.ttf"
+
+[sub_resource type="DynamicFont" id=9]
+size = 25
+font_data = SubResource( 8 )
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="BG" type="Panel" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Monitor" type="Panel" parent="."]
+margin_left = 128.0
+margin_top = 24.0
+margin_right = 1072.0
+margin_bottom = 568.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MonitorInner" type="Panel" parent="Monitor"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 912.0
+margin_bottom = 496.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MonitorText" type="Label" parent="Monitor/MonitorInner"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 864.0
+margin_bottom = 416.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineInput" type="LineEdit" parent="Monitor/MonitorInner"]
+margin_left = 32.0
+margin_top = 428.0
+margin_right = 864.0
+margin_bottom = 453.0
+focus_mode = 1
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 5 )
+max_length = 80
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InputArrow" type="Label" parent="Monitor/MonitorInner/LineInput"]
+margin_left = -16.0
+margin_top = 6.0
+margin_bottom = 22.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = ">"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stand" type="Polygon2D" parent="Monitor"]
+position = Vector2( 0, -32 )
+polygon = PoolVector2Array( 448, 584, 496, 584, 496, 616, 448, 616 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="Monitor/Stand"]
+position = Vector2( 0, 32 )
+polygon = PoolVector2Array( 296, 592, 648, 592, 664, 608, 280, 608 )
+
+[node name="Table" type="Polygon2D" parent="Monitor"]
+position = Vector2( -168, -24 )
+polygon = PoolVector2Array( 32, 448, 160, 448, 160, 576, 608, 576, 608, 608, 464, 608, 432, 640, 848, 640, 816, 608, 672, 608, 672, 576, 1120, 576, 1120, 448, 1328, 448, 1328, 728, 32, 728 )
+
+[node name="Instructions" type="Node2D" parent="."]
+
+[node name="Below" type="Node2D" parent="Instructions"]
+position = Vector2( 384, 664 )
+
+[node name="Button" type="Polygon2D" parent="Instructions/Below"]
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+polygon = PoolVector2Array( 0, 0, 0, 48, 48, 48, 48, 0 )
+
+[node name="Line2D" type="Line2D" parent="Instructions/Below/Button"]
+position = Vector2( 0, -8 )
+points = PoolVector2Array( 8, 24, 24, 40, 40, 24 )
+width = 2.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="Label" type="Label" parent="Instructions/Below"]
+margin_left = 72.0
+margin_top = 14.0
+margin_right = 448.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+text = "To Installation Guide"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="Node2D" parent="Instructions"]
+position = Vector2( 384, 664 )
+
+[node name="Button" type="Polygon2D" parent="Instructions/Right"]
+position = Vector2( 832, -536 )
+polygon = PoolVector2Array( 0, 0, 0, 48, 48, 48, 48, 0 )
+
+[node name="Line2D" type="Line2D" parent="Instructions/Right/Button"]
+position = Vector2( 0, -8 )
+points = PoolVector2Array( 16, 16, 32, 32, 16, 48 )
+width = 2.0
+default_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[node name="Label" type="Label" parent="Instructions/Right"]
+margin_left = 784.0
+margin_top = -472.0
+margin_right = 880.0
+margin_bottom = -440.0
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "To CPU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="gui_input" from="Monitor/MonitorInner/LineInput" to="." method="_on_LineInput_gui_input"]
+[connection signal="text_entered" from="Monitor/MonitorInner/LineInput" to="." method="_on_LineInput_text_entered"]

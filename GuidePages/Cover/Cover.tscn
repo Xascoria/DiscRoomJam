@@ -1,0 +1,112 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://GuidePages/PageScript.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Resources/Modeseven-L3n5.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Resources/NotoSerifJP-Regular.otf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+font_data = SubResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[node name="Panel" type="Panel"]
+anchor_right = 0.3
+anchor_bottom = 0.756
+margin_right = 3.05176e-05
+margin_bottom = -0.320007
+grow_horizontal = 0
+rect_min_size = Vector2( 384, 544 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 128.0
+margin_right = -16.0
+margin_bottom = -376.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Installation Guide"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleJap" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 160.0
+margin_right = -16.0
+margin_bottom = -344.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "インストールガイド"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title2" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 224.0
+margin_top = 512.0
+margin_right = -16.0
+margin_bottom = -12.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "U.S. VERSION"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -3.05176e-05
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_page_pressed" binds= [ 0 ]]

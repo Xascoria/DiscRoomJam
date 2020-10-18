@@ -1,0 +1,114 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://GuidePages/PageScript.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Resources/Modeseven-L3n5.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Resources/NotoSerifJP-Regular.otf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 15
+font_data = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 12
+font_data = SubResource( 4 )
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[node name="Panel" type="Panel"]
+anchor_right = 0.3
+anchor_bottom = 0.756
+margin_right = 3.05176e-05
+margin_bottom = -0.320007
+rect_min_size = Vector2( 384, 544 )
+rect_pivot_offset = Vector2( 384, 0 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -488.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Terms and Conditions"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TitleJap" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 40.0
+margin_right = -16.0
+margin_bottom = -464.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "規約と条件"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Content" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 88.0
+margin_right = -16.0
+margin_bottom = -16.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "1) アニメは、アニメーションの日本語における略語である。アニメーションを用いて構成された映像作品全般を指す。当記事では主に日本の一般向け商業アニメーション（テレビアニメ、劇場アニメ、OVAなど）について記述する。
+
+2) 「アニメ」は本来は「アニメーション」の略語であり、「アニメーション」とはコマ撮りによる錯覚を利用した映像技法・映像表現全般を指し、実写作品の特殊効果や抽象映像などの実験的映像も含まれる
+
+3) しかし「アニメ」と省略した場合、通俗的には一般に商業作品として普及しているテレビアニメ、劇場アニメ、OVAなどを連想する人も多い。これらの特徴は、基本は商業作品であり、多くは絵で描かれたキャラクター作品であり、ある程度のストーリー作品である。更には、これら商業作品の強い影響を受けた自主制作作品も含まれる。また制作技法では分業のためにセルアニメが主流であったが、一部では人形アニメ等も使用され、近年コンピュータ・グラフィックによるアニメーション（CGアニメ）も普及している。"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -3.05176e-05
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_page_pressed" binds= [ 1 ]]
