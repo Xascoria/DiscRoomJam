@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://GuidePages/PageScript.gd" type="Script" id=1]
 
@@ -17,15 +17,8 @@ font_path = "res://Resources/NotoSerifJP-Regular.otf"
 size = 12
 font_data = SubResource( 2 )
 
-[sub_resource type="StyleBoxEmpty" id=4]
-
-[sub_resource type="StyleBoxEmpty" id=5]
-
-[sub_resource type="StyleBoxEmpty" id=6]
-
-[sub_resource type="StyleBoxEmpty" id=7]
-
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 192, 272 )
 
 [node name="Panel" type="Panel"]
 anchor_right = 0.3
@@ -33,6 +26,7 @@ anchor_bottom = 0.756
 margin_right = 3.05176e-05
 margin_bottom = -0.320007
 rect_min_size = Vector2( 384, 544 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -58,17 +52,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -3.05176e-05
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/disabled = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-[connection signal="pressed" from="Button" to="." method="_on_page_pressed" binds= [ 2 ]]
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2148007936
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 192, 272 )
+shape = SubResource( 4 )
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

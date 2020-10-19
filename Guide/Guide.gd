@@ -21,11 +21,16 @@ var flipping := false
 const first_page := 0
 
 func page_clicked(page_num: int) -> void:
+	var page_flipper = $GuideTopPoint/PageFlipper
 	if page_num == first_page + 1:
-		pass
+		page_flipper.interpolate_property(pages_refs[page_num], "rect_scale:x", 
+		pages_refs[page_num].rect_scale.x, 0, 0.25)
+		page_flipper.interpolate_property(pages_refs[page_num-1], "rect_scale:x", 
+		pages_refs[page_num - 1].rect_scale.x, 1, 0.25, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, 0.25)
+		page_flipper.start()
+		print(page_num - 1)
 	else:
 		if page_num % 2 == 0:
-			var page_flipper = $GuideTopPoint/PageFlipper
 			pages_refs[page_num + 2].rect_scale.x = 1
 			page_flipper.interpolate_property(pages_refs[page_num], "rect_scale:x", 
 			pages_refs[page_num].rect_scale.x, 0, 0.25)

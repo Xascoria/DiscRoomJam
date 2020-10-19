@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Disk",
+"language": "GDScript",
+"path": "res://CPU/Disk.gd"
+} ]
 _global_script_class_icons={
-
+"Disk": ""
 }
 
 [application]
@@ -25,6 +30,12 @@ window/size/width=1280
 window/size/height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[layer_names]
+
+2d_physics/layer_1="Disk"
+2d_physics/layer_2="CPUInterior"
+2d_physics/layer_20="GuidePage"
 
 [rendering]
 
