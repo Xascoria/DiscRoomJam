@@ -35,6 +35,8 @@ window/stretch/aspect="keep"
 
 2d_physics/layer_1="Disk"
 2d_physics/layer_2="CPUInterior"
+2d_physics/layer_3="DiskDetection"
+2d_physics/layer_4="DiskPoints"
 2d_physics/layer_20="GuidePage"
 
 [rendering]

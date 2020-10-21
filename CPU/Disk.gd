@@ -41,6 +41,21 @@ func _physics_process(delta):
 			emit_signal("stopped_drag", drag_id)
 			dragging = false
 
+func points_in_collider(collider: Area2D) -> Array:
+	var output = []
+	var point_1 = $DiskPoints/Point1
+	var point_2 = $DiskPoints/Point2
+	var point_3 = $DiskPoints/Point3
+	
+	if collider in point_1.get_overlapping_areas():
+		output.append(1)
+	if collider in point_2.get_overlapping_areas():
+		output.append(2)
+	if collider in point_3.get_overlapping_areas():
+		output.append(3)
+		
+	return output
+
 ###
 ### Rest of the logic
 ###
