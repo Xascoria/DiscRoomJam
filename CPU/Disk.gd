@@ -11,6 +11,7 @@ func _ready():
 
 var hovering := false
 var dragging := false
+var holding_m1 := false
 #Score keeper keep track of other draggable entities
 var score_keeper : Node = null
 export var drag_id := 0
@@ -20,14 +21,16 @@ signal stopped_drag(drag_id)
 const offset := Vector2(-96,-96)
 
 func _on_Root_mouse_entered():
-	hovering = true
+	if not holding_m1:
+		hovering = true
 
 func _on_Root_mouse_exited():
-	if not dragging:
-		hovering = false
+	hovering = false
 
 func _physics_process(delta):
-	if Input.is_mouse_button_pressed(BUTTON_LEFT) and hovering:
+	holding_m1 = Input.is_mouse_button_pressed(BUTTON_LEFT)
+	
+	if holding_m1 and hovering:
 		if score_keeper.current_drag_id == self.drag_id or score_keeper.current_drag_id == -1:
 			if not dragging:
 				dragging = true

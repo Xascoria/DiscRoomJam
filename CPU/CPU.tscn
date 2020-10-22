@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://CPU/CPU.gd" type="Script" id=1]
 [ext_resource path="res://CPU/Disk.tscn" type="PackedScene" id=2]
@@ -20,13 +20,16 @@ font_path = "res://Resources/Modeseven-L3n5.ttf"
 font_data = SubResource( 7 )
 
 [sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 8, 88 )
+extents = Vector2( 16, 128 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 56, 128 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 12, 88 )
+extents = Vector2( 12, 112 )
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 260, 4 )
+extents = Vector2( 260, 36 )
 
 [sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 116, 8 )
@@ -34,25 +37,8 @@ extents = Vector2( 116, 8 )
 [sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 116, 8 )
 
-[sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 260, 116 )
-
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 260, 25 )
-
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 112, 104 )
-
-[sub_resource type="DynamicFontData" id=4]
-font_path = "res://Resources/Modeseven-L3n5.ttf"
-
-[sub_resource type="DynamicFont" id=5]
-size = 20
-font_data = SubResource( 4 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 15
-font_data = SubResource( 4 )
 
 [node name="Root" type="Node2D"]
 script = ExtResource( 1 )
@@ -209,6 +195,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Line2D" type="Line2D" parent="CPUFront"]
+points = PoolVector2Array( -8, 0, 616, 0 )
+width = 2.0
+default_color = Color( 0, 0, 0, 1 )
+
 [node name="CPUCollision" type="Node2D" parent="."]
 
 [node name="CPUInterior" type="StaticBody2D" parent="CPUCollision"]
@@ -216,19 +207,19 @@ position = Vector2( 96, 376 )
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CPUCollision/CPUInterior"]
-position = Vector2( -16, 8 )
+position = Vector2( -24, -8 )
 shape = SubResource( 9 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="CPUCollision/CPUInterior"]
-position = Vector2( 488, 8 )
-shape = SubResource( 9 )
+position = Vector2( 536, -8 )
+shape = SubResource( 17 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CPUCollision/CPUInterior"]
 position = Vector2( 236, 8 )
 shape = SubResource( 10 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="CPUCollision/CPUInterior"]
-position = Vector2( 236, -76 )
+position = Vector2( 240, -100 )
 shape = SubResource( 11 )
 
 [node name="CPUExterior" type="StaticBody2D" parent="CPUCollision"]
@@ -238,34 +229,15 @@ collision_layer = 2
 [node name="Slot1" type="CollisionShape2D" parent="CPUCollision/CPUExterior"]
 position = Vector2( 204, 456 )
 shape = SubResource( 15 )
+disabled = true
 
 [node name="Slot2" type="CollisionShape2D" parent="CPUCollision/CPUExterior"]
 position = Vector2( 460, 456 )
 shape = SubResource( 16 )
-
-[node name="OuterCheck" type="Area2D" parent="CPUCollision"]
-visible = false
-input_pickable = false
-collision_layer = 4
-collision_mask = 2147483656
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CPUCollision/OuterCheck"]
-position = Vector2( 332, 596 )
-shape = SubResource( 12 )
-
-[node name="InnerCheck" type="Area2D" parent="CPUCollision"]
-visible = false
-input_pickable = false
-collision_layer = 4
-collision_mask = 2147483656
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CPUCollision/InnerCheck"]
-position = Vector2( 332, 481 )
-shape = SubResource( 13 )
+disabled = true
 
 [node name="InsideCheck1" type="Area2D" parent="CPUCollision"]
-visible = false
-position = Vector2( 0, 8 )
+position = Vector2( 0, 24 )
 collision_layer = 4
 collision_mask = 8
 
@@ -274,8 +246,7 @@ position = Vector2( 204, 392 )
 shape = SubResource( 14 )
 
 [node name="InsideCheck2" type="Area2D" parent="CPUCollision"]
-visible = false
-position = Vector2( 256, 0 )
+position = Vector2( 256, 16 )
 collision_layer = 4
 collision_mask = 8
 
@@ -284,10 +255,9 @@ position = Vector2( 204, 400 )
 shape = SubResource( 14 )
 
 [node name="DragAndDropLayer" type="Node2D" parent="."]
-visible = false
 
 [node name="Disc1" parent="DragAndDropLayer" instance=ExtResource( 2 )]
-position = Vector2( 800, 384 )
+position = Vector2( 360, 312 )
 z_index = 4
 drag_id = 1
 
@@ -309,7 +279,7 @@ drag_id = 4
 [node name="DiskCoverCPU" type="Polygon2D" parent="DragAndDropLayer"]
 position = Vector2( 64, 320 )
 z_index = 5
-polygon = PoolVector2Array( 0, 0, 0, 140, 536, 140, 536, 0 )
+polygon = PoolVector2Array( 0, -16, 0, 140, 536, 140, 536, -16 )
 
 [node name="CPUBack" type="Polygon2D" parent="DragAndDropLayer/DiskCoverCPU"]
 polygon = PoolVector2Array( 536, 0, 0, 0, 8, -32, 536, -32 )
@@ -334,34 +304,10 @@ position = Vector2( 48, 0 )
 color = Color( 0.145098, 0.145098, 0.164706, 1 )
 polygon = PoolVector2Array( 16, 16, 16, 32, 32, 32, 32, 16 )
 
-[node name="Name" type="Label" parent="DragAndDropLayer/DiskCoverCPU/FrontOutline/Light1"]
-margin_left = 376.0
-margin_top = 16.0
-margin_right = 592.0
-margin_bottom = 41.0
-custom_fonts/font = SubResource( 5 )
-custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
-text = "MasterSystem 30000"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Long" type="Line2D" parent="DragAndDropLayer/DiskCoverCPU/FrontOutline"]
 points = PoolVector2Array( 24, 48, 24, 88, 536, 88, 536, 48, 22, 48 )
 width = 4.0
 default_color = Color( 0.145098, 0.145098, 0.164706, 1 )
-
-[node name="Name2" type="Label" parent="DragAndDropLayer/DiskCoverCPU/FrontOutline/Long"]
-margin_left = 28.0
-margin_top = 70.0
-margin_right = 244.0
-margin_bottom = 95.0
-custom_fonts/font = SubResource( 6 )
-custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
-text = "DEMANAGE FUTURE 4.0"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Line2D" type="Line2D" parent="DragAndDropLayer/DiskCoverCPU/FrontOutline"]
 points = PoolVector2Array( 8, 104, 536, 104 )
@@ -404,8 +350,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EmptySlot2" type="Node2D" parent="DragAndDropLayer"]
-z_index = 6
-
-[node name="EmptySlot1" type="Node2D" parent="DragAndDropLayer"]
-z_index = 7
+[node name="Line2D2" type="Line2D" parent="DragAndDropLayer/DiskCoverCPU"]
+points = PoolVector2Array( -8, 0, 616, 0 )
+width = 2.0
+default_color = Color( 0, 0, 0, 1 )
