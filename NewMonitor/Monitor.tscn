@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://NewMonitor/Monitor.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Resources/Modeseven-L3n5.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = SubResource( 2 )
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="BG" type="Panel" parent="."]
+margin_right = 1280.0
+margin_bottom = 720.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Monitor" type="Polygon2D" parent="."]
+position = Vector2( 0, -64 )
+polygon = PoolVector2Array( 256, 128, 248, 288, 248, 480, 256, 608, 448, 616, 768, 616, 960, 608, 968, 480, 968, 288, 960, 128, 768, 120, 448, 120 )
+
+[node name="Back" type="Polygon2D" parent="Monitor"]
+polygon = PoolVector2Array( 304, 88, 256, 120, 448, 112, 768, 112, 960, 120, 920, 88 )
+
+[node name="Back2" type="Polygon2D" parent="Monitor/Back"]
+position = Vector2( 0, 32 )
+polygon = PoolVector2Array( 352, 48, 864, 48, 800, 8, 416, 8 )
+
+[node name="Stand" type="Polygon2D" parent="Monitor"]
+position = Vector2( 0, -16 )
+polygon = PoolVector2Array( 512, 640, 704, 640, 768, 664, 712, 672, 640, 680, 576, 680, 496, 672, 448, 664 )
+
+[node name="Stand2" type="Polygon2D" parent="Monitor/Stand"]
+polygon = PoolVector2Array( 448, 672, 496, 680, 576, 688, 640, 688, 704, 680, 768, 672, 768, 696, 704, 704, 640, 712, 576, 712, 496, 704, 448, 696 )
+
+[node name="Table" type="Polygon2D" parent="."]
+position = Vector2( -40, -32 )
+polygon = PoolVector2Array( 32, 416, 280, 416, 280, 448, 288, 584, 472, 592, 528, 592, 480, 608, 480, 656, 616, 672, 680, 672, 816, 656, 816, 608, 760, 592, 816, 592, 1008, 584, 1016, 448, 1016, 416, 1328, 416, 1328, 752, 32, 760 )
+
+[node name="Instructions" type="Node2D" parent="."]
+
+[node name="Below" type="Node2D" parent="Instructions"]
+position = Vector2( 384, 664 )
+
+[node name="Button" type="Polygon2D" parent="Instructions/Below"]
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+polygon = PoolVector2Array( 0, 0, 0, 48, 48, 48, 48, 0 )
+
+[node name="Line2D" type="Line2D" parent="Instructions/Below/Button"]
+position = Vector2( 0, -8 )
+points = PoolVector2Array( 8, 24, 24, 40, 40, 24 )
+width = 2.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="Label" type="Label" parent="Instructions/Below"]
+margin_left = 72.0
+margin_top = 14.0
+margin_right = 448.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+text = "To Installation Guide"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="Node2D" parent="Instructions"]
+position = Vector2( 384, 664 )
+
+[node name="Button" type="Polygon2D" parent="Instructions/Right"]
+position = Vector2( 832, -536 )
+polygon = PoolVector2Array( 0, 0, 0, 48, 48, 48, 48, 0 )
+
+[node name="Line2D" type="Line2D" parent="Instructions/Right/Button"]
+position = Vector2( 0, -8 )
+points = PoolVector2Array( 16, 16, 32, 32, 16, 48 )
+width = 2.0
+default_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[node name="Label" type="Label" parent="Instructions/Right"]
+margin_left = 784.0
+margin_top = -472.0
+margin_right = 880.0
+margin_bottom = -440.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "To CPU"
+__meta__ = {
+"_edit_use_anchors_": false
+}

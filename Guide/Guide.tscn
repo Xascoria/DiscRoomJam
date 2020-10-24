@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Guide/Guide.gd" type="Script" id=1]
 [ext_resource path="res://GuidePages/Cover/Cover.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GuidePages/Page 1/Page 1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://GuidePages/Page 2/Page 2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GuidePages/Page 3/Page 3.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GuidePages/Page 4/Page 4.tscn" type="PackedScene" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
@@ -31,10 +33,9 @@ __meta__ = {
 [node name="GuideTopPoint" type="Node2D" parent="."]
 position = Vector2( 640, 120 )
 
-[node name="Page 2" parent="GuideTopPoint" instance=ExtResource( 4 )]
+[node name="Cover" parent="GuideTopPoint" instance=ExtResource( 2 )]
 margin_right = 384.0
 margin_bottom = 544.0
-page_num = 2
 
 [node name="Page 1" parent="GuideTopPoint" instance=ExtResource( 3 )]
 margin_left = -384.0
@@ -42,9 +43,19 @@ margin_right = 0.0
 margin_bottom = 544.0
 page_num = 1
 
-[node name="Cover" parent="GuideTopPoint" instance=ExtResource( 2 )]
+[node name="Page 2" parent="GuideTopPoint" instance=ExtResource( 4 )]
 margin_right = 384.0
 margin_bottom = 544.0
+page_num = 2
+
+[node name="Page 3" parent="GuideTopPoint" instance=ExtResource( 5 )]
+margin_left = -384.0
+margin_right = 0.0
+margin_bottom = 544.0
+page_num = 3
+
+[node name="Page 4" parent="GuideTopPoint" instance=ExtResource( 6 )]
+page_num = 4
 
 [node name="PageFlipper" type="Tween" parent="GuideTopPoint"]
 

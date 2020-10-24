@@ -1,0 +1,178 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://ActualGame/Platforms.gd" type="Script" id=1]
+[ext_resource path="res://ActualGame/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ActualGame/Level/Actualgame.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 352, 12 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 56, 32 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 56, 56 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 56, 84 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 216, 124 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 160, 56 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 96, 8 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 168, 8 )
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
+position = Vector2( 352, 708 )
+collision_layer = 64
+collision_mask = 48
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Ground"]
+position = Vector2( 760, 696 )
+collision_layer = 64
+collision_mask = 48
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Ground"]
+position = Vector2( 872, 672 )
+collision_layer = 64
+collision_mask = 48
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D3"]
+shape = SubResource( 3 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Ground"]
+position = Vector2( 984, 644 )
+collision_layer = 64
+collision_mask = 48
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D4"]
+shape = SubResource( 4 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Ground"]
+position = Vector2( 1256, 612 )
+collision_layer = 64
+collision_mask = 48
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D5"]
+shape = SubResource( 5 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Ground"]
+position = Vector2( 1528, 644 )
+collision_layer = 64
+collision_mask = 48
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D6"]
+shape = SubResource( 4 )
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Ground"]
+position = Vector2( 1744, 672 )
+collision_layer = 64
+collision_mask = 48
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D7"]
+shape = SubResource( 6 )
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Ground"]
+position = Vector2( 1248, 392 )
+collision_layer = 64
+collision_mask = 48
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D8"]
+shape = SubResource( 7 )
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="Ground"]
+position = Vector2( 992, 288 )
+collision_layer = 64
+collision_mask = 48
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D9"]
+shape = SubResource( 7 )
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="Ground"]
+position = Vector2( 1504, 288 )
+collision_layer = 64
+collision_mask = 48
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D10"]
+shape = SubResource( 7 )
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="Ground"]
+position = Vector2( 1248, 184 )
+collision_layer = 64
+collision_mask = 48
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D11"]
+shape = SubResource( 7 )
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="Ground"]
+position = Vector2( 1648, 104 )
+collision_layer = 2147483712
+collision_mask = 48
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D12"]
+shape = SubResource( 8 )
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders"]
+collision_layer = 128
+collision_mask = 2147483664
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/StaticBody2D"]
+polygon = PoolVector2Array( 0, 720, 1904, 720, 1904, -344, 1920, -344, 1920, 736, -16, 736, -16, -360, 1920, -360, 1920, -344, 0, -344 )
+
+[node name="bottom_left" type="Node2D" parent="Borders"]
+position = Vector2( 0, 720 )
+
+[node name="bottom_right" type="Node2D" parent="Borders"]
+position = Vector2( 1904, 720 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 88, 584 )
+gravity = 15
+initial_jump_force = 450
+air_penalty = 0.5
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+zoom = Vector2( 0.6, 0.6 )
+limit_left = 0
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 3.0
+offset_v = -0.2
+drag_margin_left = 0.8
+drag_margin_top = 0.8
+drag_margin_right = 0.8
+drag_margin_bottom = 0.8
+
+[node name="Polygon2D" type="Polygon2D" parent="."]

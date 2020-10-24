@@ -22,6 +22,7 @@ _global_script_class_icons={
 
 config/name="InstallGuide"
 run/main_scene="res://MainLevel/MainLevel.tscn"
+boot_splash/bg_color=Color( 0.145098, 0.145098, 0.164706, 1 )
 config/icon="res://icon.png"
 
 [display]
@@ -45,6 +46,10 @@ ui_m1={
 2d_physics/layer_2="CPUInterior"
 2d_physics/layer_3="DiskDetection"
 2d_physics/layer_4="DiskPoints"
+2d_physics/layer_5="Player"
+2d_physics/layer_6="Hook"
+2d_physics/layer_7="Ground"
+2d_physics/layer_8="Border"
 2d_physics/layer_20="GuidePage"
 
 [rendering]

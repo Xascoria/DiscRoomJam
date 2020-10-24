@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://ActualGame/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Player.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Grappling.png" type="Texture" id=3]
+[ext_resource path="res://ActualGame/Player/Grappling.gd" type="Script" id=4]
+[ext_resource path="res://Resources/Hook.png" type="Texture" id=5]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 2.875
+height = 4.5835
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14, 28 )
+
+[node name="Node2D" type="KinematicBody2D"]
+collision_layer = 2147483664
+collision_mask = 192
+script = ExtResource( 1 )
+speed = 500
+gravity = 30
+
+[node name="Player" type="Sprite" parent="."]
+position = Vector2( -14, -28 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="Grappling" type="Sprite" parent="."]
+position = Vector2( 12, 6 )
+scale = Vector2( 3, 4 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -2, -5 )
+
+[node name="Chain" type="Line2D" parent="Grappling"]
+position = Vector2( 0, -5 )
+points = PoolVector2Array( 0, 0, 0, 0 )
+width = 0.5
+default_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 4 )
+
+[node name="Tip" type="KinematicBody2D" parent="Grappling/Chain"]
+position = Vector2( 0.333335, 0 )
+scale = Vector2( 0.333333, 0.25 )
+collision_layer = 32
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grappling/Chain/Tip"]
+position = Vector2( -5.72205e-06, 0 )
+shape = SubResource( 2 )
+
+[node name="Hook" type="Sprite" parent="Grappling/Chain/Tip"]
+position = Vector2( -5.72205e-06, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

@@ -4,6 +4,8 @@ onready var pages_refs = {
 	0: $GuideTopPoint/Cover,
 	1: $"GuideTopPoint/Page 1",
 	2: $"GuideTopPoint/Page 2",
+	3: $"GuideTopPoint/Page 3",
+	4: $"GuideTopPoint/Page 4",
 }
 onready var guide_top_point := $GuideTopPoint
 
@@ -19,6 +21,7 @@ func _ready():
 
 var flipping := false
 const first_page := 0
+#last page?
 
 func page_clicked(page_num: int) -> void:
 	var page_flipper = $GuideTopPoint/PageFlipper

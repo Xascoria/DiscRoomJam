@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://GuidePages/PageScript.gd" type="Script" id=1]
 
@@ -11,24 +11,21 @@ border_width_bottom = 6
 border_color = Color( 0.145098, 0.145098, 0.164706, 1 )
 
 [sub_resource type="DynamicFontData" id=2]
-font_path = "res://Resources/Modeseven-L3n5.ttf"
+font_path = "res://Resources/Freshman.ttf"
 
 [sub_resource type="DynamicFont" id=3]
-size = 25
+size = 31
 font_data = SubResource( 2 )
 
 [sub_resource type="DynamicFontData" id=4]
-font_path = "res://Resources/NotoSerifJP-Regular.otf"
+font_path = "res://Resources/Fragmentcore.otf"
 
 [sub_resource type="DynamicFont" id=5]
-size = 15
+size = 22
+extra_spacing_bottom = -2
 font_data = SubResource( 4 )
 
-[sub_resource type="DynamicFont" id=6]
-size = 12
-font_data = SubResource( 4 )
-
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 192, 272 )
 
 [node name="Panel" type="Panel"]
@@ -45,48 +42,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 16.0
-margin_top = 16.0
-margin_right = -16.0
-margin_bottom = -488.0
+[node name="Situation" type="Label" parent="."]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 239.0
+margin_bottom = 44.0
 custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Terms and Conditions"
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+text = "FINCH"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TitleJap" type="Label" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 16.0
-margin_top = 40.0
-margin_right = -16.0
-margin_bottom = -464.0
+[node name="Situation2" type="Label" parent="."]
+margin_left = 12.0
+margin_top = 52.0
+margin_right = 372.0
+margin_bottom = 474.0
 custom_fonts/font = SubResource( 5 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "規約と条件"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Content" type="Label" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 16.0
-margin_top = 88.0
-margin_right = -16.0
-margin_bottom = -16.0
-custom_fonts/font = SubResource( 6 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "1) アニメは、アニメーションの日本語における略語である。アニメーションを用いて構成された映像作品全般を指す。当記事では主に日本の一般向け商業アニメーション（テレビアニメ、劇場アニメ、OVAなど）について記述する。
-
-2) 「アニメ」は本来は「アニメーション」の略語であり、「アニメーション」とはコマ撮りによる錯覚を利用した映像技法・映像表現全般を指し、実写作品の特殊効果や抽象映像などの実験的映像も含まれる
-
-3) しかし「アニメ」と省略した場合、通俗的には一般に商業作品として普及しているテレビアニメ、劇場アニメ、OVAなどを連想する人も多い。これらの特徴は、基本は商業作品であり、多くは絵で描かれたキャラクター作品であり、ある程度のストーリー作品である。更には、これら商業作品の強い影響を受けた自主制作作品も含まれる。また制作技法では分業のためにセルアニメが主流であったが、一部では人形アニメ等も使用され、近年コンピュータ・グラフィックによるアニメーション（CGアニメ）も普及している。"
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+text = "The Finch Nuclear Power Plant, located 27 miles northwest of Pittsburgh, began construction in 1962. The plant and its three reactors were operational starting 1967. The plant was not designed like other conventional nuclear plants, as it was intended to be a showcase of safety of nuclear power in response to the growing Anti-Nuclear movement during mid-1950s. As such, it’s operations are small-scaled, with its main goal not being electricity generation, but to be opened to the public and school trips regularly as an exhibition to combat the pushback on nuclear power.
+"
+align = 3
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -98,5 +75,5 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 192, 272 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

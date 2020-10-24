@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://CPU/CPU.gd" type="Script" id=1]
 [ext_resource path="res://CPU/Disk.tscn" type="PackedScene" id=2]
@@ -13,31 +13,22 @@ font_path = "res://Resources/Modeseven-L3n5.ttf"
 size = 25
 font_data = SubResource( 2 )
 
-[sub_resource type="DynamicFontData" id=7]
+[sub_resource type="DynamicFontData" id=4]
 font_path = "res://Resources/Modeseven-L3n5.ttf"
 
-[sub_resource type="DynamicFont" id=8]
-font_data = SubResource( 7 )
+[sub_resource type="DynamicFont" id=5]
+font_data = SubResource( 4 )
 
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 16, 128 )
-
-[sub_resource type="RectangleShape2D" id=17]
-extents = Vector2( 56, 128 )
-
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 12, 112 )
-
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 260, 36 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 116, 8 )
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 116, 8 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 112, 104 )
 
 [node name="Root" type="Node2D"]
@@ -171,7 +162,7 @@ margin_left = 16.0
 margin_top = 120.0
 margin_right = 76.0
 margin_bottom = 137.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
 text = "SLOT 1"
 __meta__ = {
@@ -188,7 +179,7 @@ margin_left = 16.0
 margin_top = 120.0
 margin_right = 76.0
 margin_bottom = 137.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
 text = "SLOT 2"
 __meta__ = {
@@ -206,34 +197,24 @@ default_color = Color( 0, 0, 0, 1 )
 position = Vector2( 96, 376 )
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CPUCollision/CPUInterior"]
-position = Vector2( -24, -8 )
-shape = SubResource( 9 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="CPUCollision/CPUInterior"]
-position = Vector2( 536, -8 )
-shape = SubResource( 17 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CPUCollision/CPUInterior"]
-position = Vector2( 236, 8 )
-shape = SubResource( 10 )
-
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="CPUCollision/CPUInterior"]
 position = Vector2( 240, -100 )
-shape = SubResource( 11 )
+shape = SubResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CPUCollision/CPUInterior"]
+polygon = PoolVector2Array( -40, -144, -40, 120, -16, 120, -8, -64, 224, -64, 232, 120, 240, 120, 248, -64, 480, -64, 488, 120, 592, 120, 592, -144 )
 
 [node name="CPUExterior" type="StaticBody2D" parent="CPUCollision"]
-visible = false
 collision_layer = 2
 
 [node name="Slot1" type="CollisionShape2D" parent="CPUCollision/CPUExterior"]
 position = Vector2( 204, 456 )
-shape = SubResource( 15 )
+shape = SubResource( 7 )
 disabled = true
 
 [node name="Slot2" type="CollisionShape2D" parent="CPUCollision/CPUExterior"]
 position = Vector2( 460, 456 )
-shape = SubResource( 16 )
+shape = SubResource( 8 )
 disabled = true
 
 [node name="InsideCheck1" type="Area2D" parent="CPUCollision"]
@@ -243,7 +224,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CPUCollision/InsideCheck1"]
 position = Vector2( 204, 392 )
-shape = SubResource( 14 )
+shape = SubResource( 9 )
 
 [node name="InsideCheck2" type="Area2D" parent="CPUCollision"]
 position = Vector2( 256, 16 )
@@ -252,7 +233,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CPUCollision/InsideCheck2"]
 position = Vector2( 204, 400 )
-shape = SubResource( 14 )
+shape = SubResource( 9 )
 
 [node name="DragAndDropLayer" type="Node2D" parent="."]
 
@@ -326,7 +307,7 @@ margin_left = 16.0
 margin_top = 120.0
 margin_right = 76.0
 margin_bottom = 137.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
 text = "SLOT 1"
 __meta__ = {
@@ -343,7 +324,7 @@ margin_left = 16.0
 margin_top = 120.0
 margin_right = 76.0
 margin_bottom = 137.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
 text = "SLOT 2"
 __meta__ = {
