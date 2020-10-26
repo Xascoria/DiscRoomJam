@@ -8,10 +8,10 @@
 script = ExtResource( 3 )
 
 [node name="Monitor" parent="." instance=ExtResource( 2 )]
-position = Vector2( 32, 40 )
+position = Vector2( 16, 32 )
 
 [node name="CPU" parent="." instance=ExtResource( 1 )]
-position = Vector2( 712, 128 )
-scale = Vector2( 0.9, 0.9 )
+position = Vector2( 688, 40 )
+[connection signal="hook_acquired" from="Monitor" to="." method="_on_Monitor_hook_acquired"]
 [connection signal="inserted_disk" from="CPU" to="." method="disk_inserted"]
 [connection signal="removed_disk" from="CPU" to="." method="disk_removed"]

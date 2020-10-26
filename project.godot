@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="InstallGuide"
-run/main_scene="res://MainLevel/MainLevel.tscn"
+run/main_scene="res://MainLevel2/MainLevel2.tscn"
 boot_splash/bg_color=Color( 0.145098, 0.145098, 0.164706, 1 )
 config/icon="res://icon.png"
 

@@ -16,3 +16,6 @@ func disk_removed(input_int):
 
 func _physics_process(delta):
 	monitor.actual_game.controls = current_inputs
+
+func _on_Monitor_hook_acquired():
+	pass # Replace with function body.

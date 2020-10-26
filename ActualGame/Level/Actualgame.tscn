@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://ActualGame/Platforms.gd" type="Script" id=1]
 [ext_resource path="res://ActualGame/Player/Player.tscn" type="PackedScene" id=2]
@@ -63,6 +63,19 @@ extents = Vector2( 32, 8 )
 [sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 329.802, 8 )
 
+[sub_resource type="DynamicFontData" id=22]
+font_path = "res://Resources/Modeseven-L3n5.ttf"
+
+[sub_resource type="DynamicFont" id=23]
+font_data = SubResource( 22 )
+
+[sub_resource type="DynamicFont" id=24]
+font_data = SubResource( 22 )
+
+[sub_resource type="DynamicFont" id=25]
+extra_spacing_bottom = -5
+font_data = SubResource( 22 )
+
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 24, 24 )
 
@@ -76,6 +89,7 @@ script = ExtResource( 3 )
 margin_top = -2288.0
 margin_right = 1904.0
 margin_bottom = 720.0
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -474,6 +488,106 @@ position = Vector2( 0, 720 )
 
 [node name="bottom_right" type="Node2D" parent="Borders"]
 position = Vector2( 1904, 720 )
+
+[node name="Controls" type="Node" parent="."]
+
+[node name="Walk" type="Node2D" parent="Controls"]
+position = Vector2( 132, 512 )
+scale = Vector2( 2, 2 )
+
+[node name="Left" type="Polygon2D" parent="Controls/Walk"]
+polygon = PoolVector2Array( -2, 0, -2, 32, 30, 32, 30, 0 )
+
+[node name="Label" type="Label" parent="Controls/Walk/Left"]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 28.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 23 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+text = "A"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right" type="Polygon2D" parent="Controls/Walk"]
+position = Vector2( 68, 0 )
+polygon = PoolVector2Array( -2, 0, -2, 32, 30, 32, 30, 0 )
+
+[node name="Label" type="Label" parent="Controls/Walk/Right"]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 28.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 23 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+text = "D"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Controls/Walk"]
+margin_left = -38.0
+margin_top = 8.0
+margin_right = 102.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 24 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "USE    AND    TO WALK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jump" type="Node2D" parent="Controls"]
+position = Vector2( 672, 472 )
+scale = Vector2( 2, 2 )
+
+[node name="Key" type="Polygon2D" parent="Controls/Jump"]
+polygon = PoolVector2Array( -2, 0, -2, 32, 30, 32, 30, 0 )
+
+[node name="Label" type="Label" parent="Controls/Jump/Key"]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 28.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 23 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+text = "W"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Controls/Jump"]
+margin_left = 36.0
+margin_top = 8.0
+margin_right = 106.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 24 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "TO JUMP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jump2" type="Node2D" parent="Controls"]
+position = Vector2( 1520, -88 )
+scale = Vector2( 2, 2 )
+
+[node name="Label" type="Label" parent="Controls/Jump2"]
+margin_left = -48.0
+margin_top = -16.0
+margin_right = 172.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 25 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "AIM THE GRAPPLING HOOK WITH MOUSE
+
+HOLD MOUSE1 TO USE "
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 144, 648 )

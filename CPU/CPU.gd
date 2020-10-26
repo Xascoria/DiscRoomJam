@@ -16,6 +16,10 @@ onready var disc_refs = {
 	2: $DragAndDropLayer/Disc2,
 	3: $DragAndDropLayer/Disc3,
 	4: $DragAndDropLayer/Disc4,
+	5: $DragAndDropLayer/Disc5,
+	6: $DragAndDropLayer/Disc6,
+	7: $DragAndDropLayer/Disc7,
+	8: $DragAndDropLayer/Disc8,
 }
 
 var current_drag_id = -1
@@ -39,7 +43,6 @@ func started_drag(drag_id: int) -> void:
 		else:
 			$CPUCollision/CPUExterior/Slot2.disabled = false
 		current_drag_id = drag_id
-		
 
 func stopped_drag(drag_id: int) -> void:
 	if current_drag_id == drag_id:

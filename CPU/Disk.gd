@@ -1,8 +1,6 @@
 extends KinematicBody2D
 class_name Disk
 
-func _ready():
-	$Appearance/TextboxOutline/SerialNumber.text = str(input_int)
 
 ###
 ### Drag and drop system
@@ -26,24 +24,20 @@ func _on_Root_mouse_entered():
 
 func _on_Root_mouse_exited():
 	hovering = false
-	allow_fresh_drag = false
 
 func _process(delta):
 	holding_m1 = Input.is_mouse_button_pressed(BUTTON_LEFT)
-	
 	allow_fresh_drag = (not holding_m1 or allow_fresh_drag) and hovering
 
 func _physics_process(delta):
 	if holding_m1 and allow_fresh_drag:
 		if score_keeper.current_drag_id == self.drag_id or score_keeper.current_drag_id == -1:
-			print(score_keeper.current_drag_id)
 			if not dragging:
 				dragging = true
 				emit_signal("being_dragged", drag_id)
 			var destination = get_global_mouse_position() - global_position + offset
-#			move_and_collide(Vector2(destination.x, 0))
-#			move_and_collide(Vector2(0, destination.y))
-			move_and_slide(destination * 60)
+
+			move_and_slide(destination*50)
 			#set_global_position( get_global_mouse_position() + offset )
 	else:
 		if dragging:
@@ -71,5 +65,25 @@ func points_in_collider(collider: Area2D) -> Array:
 
 export (int) var input_int := -1
 
-func constructor():
-	pass
+func _ready():
+	var display_text := ""
+	
+	match(input_int):
+		1:
+			display_text = "HOLDING M1"
+		2:
+			display_text = "HOLDING D"
+		3:
+			display_text = "HOLDING A"
+		4:
+			display_text = "HOLDING W"
+		5:
+			display_text = "CURSOR UP"
+		6:
+			display_text = "CURSOR DOWN"
+		7:
+			display_text = "CURSOR LEFT"
+		8: 
+			display_text = "CURSOR RIGHT"
+	
+	$Appearance/TextboxOutline/SerialNumber.text = display_text
