@@ -2,7 +2,7 @@ extends KinematicBody2D
 class_name Disk
 
 func _ready():
-	pass # Replace with function body.
+	$Appearance/TextboxOutline/SerialNumber.text = str(input_int)
 
 ###
 ### Drag and drop system
@@ -36,6 +36,7 @@ func _process(delta):
 func _physics_process(delta):
 	if holding_m1 and allow_fresh_drag:
 		if score_keeper.current_drag_id == self.drag_id or score_keeper.current_drag_id == -1:
+			print(score_keeper.current_drag_id)
 			if not dragging:
 				dragging = true
 				emit_signal("being_dragged", drag_id)
@@ -68,20 +69,7 @@ func points_in_collider(collider: Area2D) -> Array:
 ### Rest of the logic
 ###
 
-var disc_data := {
-	"index": -1,
-	"name": "",
-	"jap_char": "",
-	"serial": -1,
-	"bytes": -1,
-	"memory_data": "",
-	"key": "",
-	"compliment": "",
-	"checksum": "",
-	"security": "",
-}
-func constructor(new_data: Dictionary) -> void:
-	self.disc_data = new_data
-	
-	$TextboxOutline/JapSymbol.text = disc_data["jap_char"]
-	$TextboxOutline/SerialNumber.text = str(disc_data["serial"])
+export (int) var input_int := -1
+
+func constructor():
+	pass

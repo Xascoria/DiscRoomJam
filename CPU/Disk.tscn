@@ -2,21 +2,21 @@
 
 [ext_resource path="res://CPU/Disk.gd" type="Script" id=1]
 
-[sub_resource type="DynamicFontData" id=2]
+[sub_resource type="DynamicFontData" id=1]
 font_path = "res://Resources/NotoSerifJP-SemiBold.otf"
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 40
-font_data = SubResource( 2 )
+font_data = SubResource( 1 )
 
-[sub_resource type="DynamicFontData" id=4]
+[sub_resource type="DynamicFontData" id=3]
 font_path = "res://Resources/Modeseven-L3n5.ttf"
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 20
-font_data = SubResource( 4 )
+font_data = SubResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 4, 4 )
 
 [node name="Root" type="KinematicBody2D"]
@@ -58,7 +58,7 @@ margin_left = 24.0
 margin_top = 96.0
 margin_right = 104.0
 margin_bottom = 160.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -69,7 +69,7 @@ margin_left = 24.0
 margin_top = 160.0
 margin_right = 160.0
 margin_bottom = 180.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
 text = "13002788"
 __meta__ = {
@@ -89,7 +89,7 @@ collision_layer = 2147483656
 collision_mask = 2147483652
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DiskPoints/Point1"]
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="Point2" type="Area2D" parent="DiskPoints"]
 position = Vector2( 4, 188 )
@@ -97,7 +97,7 @@ collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DiskPoints/Point2"]
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="Point3" type="Area2D" parent="DiskPoints"]
 position = Vector2( 188, 188 )
@@ -105,6 +105,6 @@ collision_layer = 8
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DiskPoints/Point3"]
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 [connection signal="mouse_entered" from="." to="." method="_on_Root_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Root_mouse_exited"]

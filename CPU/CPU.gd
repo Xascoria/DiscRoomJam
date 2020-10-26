@@ -23,6 +23,8 @@ onready var drag_and_drop_layer := $DragAndDropLayer
 
 onready var slot_1_check := $CPUCollision/InsideCheck1
 onready var slot_2_check := $CPUCollision/InsideCheck2
+onready var input_area_1 := $"CPUCollision/InputArea1"
+onready var input_area_2 := $"CPUCollision/InputArea2"
 var disc_in_slot_1 := -1
 var disc_in_slot_2 := -1
 
@@ -36,7 +38,6 @@ func started_drag(drag_id: int) -> void:
 			$CPUCollision/CPUExterior/Slot2.disabled = true
 		else:
 			$CPUCollision/CPUExterior/Slot2.disabled = false
-		
 		current_drag_id = drag_id
 		
 
@@ -44,9 +45,29 @@ func stopped_drag(drag_id: int) -> void:
 	if current_drag_id == drag_id:
 		if len(disc_refs[current_drag_id].points_in_collider(slot_1_check)) == 3:
 			disc_in_slot_1 = current_drag_id
-		elif len(disc_refs[current_drag_id].points_in_collider(slot_2_check)) == 3:
+		elif drag_id == disc_in_slot_1:
+			disc_in_slot_1 = -1
+		if len(disc_refs[current_drag_id].points_in_collider(slot_2_check)) == 3:
 			disc_in_slot_2 = current_drag_id
+		elif drag_id == disc_in_slot_2:
+			disc_in_slot_2 = -1
 		current_drag_id = -1
+
+signal inserted_disk(input_int)
+signal removed_disk(input_int)
+	
+func _on_InputArea1_body_entered(body):
+	emit_signal("inserted_disk", body.input_int)
+	
+func _on_InputArea1_body_exited(body):
+	emit_signal("removed_disk", body.input_int)
+
+func _on_InputArea2_body_entered(body):
+	emit_signal("inserted_disk", body.input_int)
+
+func _on_InputArea2_body_exited(body):
+	emit_signal("removed_disk", body.input_int)
+
 ###
 ### Deal with collisions and layers
 ###
@@ -99,3 +120,8 @@ func stopped_drag(drag_id: int) -> void:
 #	var children := drag_and_drop_layer.get_children()
 #	for i in range(len(children)):
 #		children[i].z_index = len(children) - i
+
+
+
+
+
