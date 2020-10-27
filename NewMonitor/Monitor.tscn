@@ -67,6 +67,7 @@ render_target_update_mode = 3
 margin_right = 1075.0
 margin_bottom = 720.0
 rect_min_size = Vector2( 1075, 720 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 1 )
 
 [node name="1" type="Label" parent="Monitor/ViewportContainer/Credits"]
