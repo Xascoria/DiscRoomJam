@@ -3,4 +3,5 @@
 [ext_resource path="res://AudioPlayer/SFXPlayer.gd" type="Script" id=1]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+volume_db = -6.0
 script = ExtResource( 1 )
