@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://CPU/Disk.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Testing/DragAndDropTest.gd" type="Script" id=2]
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Root" parent="." instance=ExtResource( 1 )]
+position = Vector2( 368, 144 )
+z_index = 2
+drag_id = 3
+
+[node name="Root2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 368, 104 )
+z_index = 1
+drag_id = 2
+
+[node name="Root3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 368, 64 )
+drag_id = 1
+[connection signal="being_dragged" from="Root" to="." method="_on_Root_being_dragged"]
+[connection signal="stopped_drag" from="Root" to="." method="_on_Root_stopped_drag"]
+[connection signal="being_dragged" from="Root2" to="." method="_on_Root_being_dragged"]
+[connection signal="stopped_drag" from="Root2" to="." method="_on_Root_stopped_drag"]
+[connection signal="being_dragged" from="Root3" to="." method="_on_Root_being_dragged"]
+[connection signal="stopped_drag" from="Root3" to="." method="_on_Root_stopped_drag"]

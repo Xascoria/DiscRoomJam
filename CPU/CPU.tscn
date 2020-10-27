@@ -1,0 +1,337 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://CPU/CPU.gd" type="Script" id=1]
+[ext_resource path="res://CPU/Disk.tscn" type="PackedScene" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Resources/Modeseven-L3n5.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Resources/Modeseven-L3n5.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+font_data = SubResource( 4 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 260, 36 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 116, 8 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 116, 8 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 112, 104 )
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="BG" type="Panel" parent="."]
+margin_right = 1280.0
+margin_bottom = 728.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Table" type="Polygon2D" parent="."]
+position = Vector2( 0, 448 )
+polygon = PoolVector2Array( 0, -64, 0, 280, 1280, 280, 1280, -64, 688, -64, 688, 48, 56, 48, 56, -64 )
+
+[node name="Instructions" type="Node2D" parent="."]
+visible = false
+
+[node name="Left" type="Node2D" parent="Instructions"]
+position = Vector2( 16, 128 )
+
+[node name="Button" type="Polygon2D" parent="Instructions/Left"]
+polygon = PoolVector2Array( 0, 0, 0, 48, 48, 48, 48, 0 )
+
+[node name="Line2D" type="Line2D" parent="Instructions/Left/Button"]
+points = PoolVector2Array( 32, 8, 16, 24, 32, 40 )
+width = 2.0
+default_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[node name="Label" type="Label" parent="Instructions/Left"]
+margin_top = 64.0
+margin_right = 150.0
+margin_bottom = 89.0
+custom_fonts/font = SubResource( 3 )
+text = "To Monitor"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Down" type="Node2D" parent="Instructions"]
+position = Vector2( 448, 664 )
+
+[node name="Button" type="Polygon2D" parent="Instructions/Down"]
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+polygon = PoolVector2Array( 0, 0, 0, 48, 48, 48, 48, 0 )
+
+[node name="Line2D" type="Line2D" parent="Instructions/Down/Button"]
+points = PoolVector2Array( 8, 16, 24, 32, 40, 16 )
+width = 2.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="Label" type="Label" parent="Instructions/Down"]
+margin_left = 64.0
+margin_top = 16.0
+margin_right = 379.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0, 1 )
+text = "To Installation Guide"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CPUFront" type="Polygon2D" parent="."]
+position = Vector2( 64, 320 )
+polygon = PoolVector2Array( 0, 0, 0, 168, 616, 168, 616, 0 )
+
+[node name="CPUBack" type="Polygon2D" parent="CPUFront"]
+polygon = PoolVector2Array( 616, 0, 0, 0, 0, -80, 616, -80 )
+
+[node name="FrontOutline" type="Line2D" parent="CPUFront"]
+points = PoolVector2Array( 7.99831, 12.0009, 8, 160, 608, 160, 608, 8, 8, 8, 8, 16 )
+width = 4.0
+default_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[node name="Light1" type="Polygon2D" parent="CPUFront/FrontOutline"]
+position = Vector2( 4, 4 )
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+polygon = PoolVector2Array( 16, 16, 16, 32, 32, 32, 32, 16 )
+
+[node name="Light2" type="Polygon2D" parent="CPUFront/FrontOutline/Light1"]
+position = Vector2( 24, 0 )
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+polygon = PoolVector2Array( 16, 16, 16, 32, 32, 32, 32, 16 )
+
+[node name="Light3" type="Polygon2D" parent="CPUFront/FrontOutline/Light1"]
+position = Vector2( 48, 0 )
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+polygon = PoolVector2Array( 16, 16, 16, 32, 32, 32, 32, 16 )
+
+[node name="Long" type="Line2D" parent="CPUFront/FrontOutline"]
+points = PoolVector2Array( 24, 48, 24, 88, 536, 88, 536, 48, 22, 48 )
+width = 4.0
+default_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[node name="Short" type="Line2D" parent="CPUFront/FrontOutline/Long"]
+position = Vector2( 520, 0 )
+points = PoolVector2Array( 24, 48, 24, 88, 72, 88, 72, 48, 22, 48 )
+width = 4.0
+default_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[node name="Small" type="Line2D" parent="CPUFront/FrontOutline/Long"]
+position = Vector2( 528, 8 )
+points = PoolVector2Array( 24, 48, 24, 56, 56, 56, 56, 48, 23, 48 )
+width = 2.0
+default_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[node name="Small2" type="Line2D" parent="CPUFront/FrontOutline/Long"]
+position = Vector2( 528, 24 )
+points = PoolVector2Array( 24, 48, 24, 56, 56, 56, 56, 48, 23, 48 )
+width = 2.0
+default_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[node name="Line2D" type="Line2D" parent="CPUFront/FrontOutline"]
+points = PoolVector2Array( 8, 104, 608, 104 )
+width = 4.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="Slots" type="Node2D" parent="CPUFront/FrontOutline"]
+
+[node name="Slot1" type="Polygon2D" parent="CPUFront/FrontOutline/Slots"]
+position = Vector2( 8, 0 )
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+polygon = PoolVector2Array( 16, 136, 16, 152, 248, 152, 248, 136 )
+
+[node name="Label" type="Label" parent="CPUFront/FrontOutline/Slots/Slot1"]
+margin_left = 16.0
+margin_top = 120.0
+margin_right = 76.0
+margin_bottom = 137.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+text = "SLOT 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot2" type="Polygon2D" parent="CPUFront/FrontOutline/Slots"]
+position = Vector2( 264, 0 )
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+polygon = PoolVector2Array( 16, 136, 16, 152, 248, 152, 248, 136 )
+
+[node name="Label2" type="Label" parent="CPUFront/FrontOutline/Slots/Slot2"]
+margin_left = 16.0
+margin_top = 120.0
+margin_right = 76.0
+margin_bottom = 137.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+text = "SLOT 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="CPUFront"]
+points = PoolVector2Array( -8, 0, 616, 0 )
+width = 2.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="CPUCollision" type="Node2D" parent="."]
+
+[node name="CPUInterior" type="StaticBody2D" parent="CPUCollision"]
+position = Vector2( 96, 376 )
+collision_layer = 2
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CPUCollision/CPUInterior"]
+position = Vector2( 240, -100 )
+shape = SubResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CPUCollision/CPUInterior"]
+polygon = PoolVector2Array( -40, -144, -40, 120, -16, 120, -8, -64, 224, -64, 232, 120, 240, 120, 248, -64, 480, -64, 488, 120, 592, 120, 592, -144 )
+
+[node name="CPUExterior" type="StaticBody2D" parent="CPUCollision"]
+collision_layer = 2
+
+[node name="Slot1" type="CollisionShape2D" parent="CPUCollision/CPUExterior"]
+position = Vector2( 204, 456 )
+shape = SubResource( 7 )
+disabled = true
+
+[node name="Slot2" type="CollisionShape2D" parent="CPUCollision/CPUExterior"]
+position = Vector2( 460, 456 )
+shape = SubResource( 8 )
+disabled = true
+
+[node name="InsideCheck1" type="Area2D" parent="CPUCollision"]
+position = Vector2( 0, 24 )
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CPUCollision/InsideCheck1"]
+position = Vector2( 204, 392 )
+shape = SubResource( 9 )
+
+[node name="InsideCheck2" type="Area2D" parent="CPUCollision"]
+position = Vector2( 256, 16 )
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CPUCollision/InsideCheck2"]
+position = Vector2( 204, 400 )
+shape = SubResource( 9 )
+
+[node name="DragAndDropLayer" type="Node2D" parent="."]
+
+[node name="Disc1" parent="DragAndDropLayer" instance=ExtResource( 2 )]
+position = Vector2( 360, 312 )
+z_index = 4
+drag_id = 1
+
+[node name="Disc2" parent="DragAndDropLayer" instance=ExtResource( 2 )]
+position = Vector2( 800, 328 )
+z_index = 3
+drag_id = 2
+
+[node name="Disc3" parent="DragAndDropLayer" instance=ExtResource( 2 )]
+position = Vector2( 800, 288 )
+z_index = 2
+drag_id = 3
+
+[node name="Disc4" parent="DragAndDropLayer" instance=ExtResource( 2 )]
+position = Vector2( 800, 248 )
+z_index = 1
+drag_id = 4
+
+[node name="DiskCoverCPU" type="Polygon2D" parent="DragAndDropLayer"]
+position = Vector2( 64, 320 )
+z_index = 5
+polygon = PoolVector2Array( 0, -16, 0, 140, 536, 140, 536, -16 )
+
+[node name="CPUBack" type="Polygon2D" parent="DragAndDropLayer/DiskCoverCPU"]
+polygon = PoolVector2Array( 536, 0, 0, 0, 8, -32, 536, -32 )
+
+[node name="FrontOutline" type="Line2D" parent="DragAndDropLayer/DiskCoverCPU"]
+points = PoolVector2Array( 8, 160, 8, 8, 608, 8, 608, 152 )
+width = 4.0
+default_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[node name="Light1" type="Polygon2D" parent="DragAndDropLayer/DiskCoverCPU/FrontOutline"]
+position = Vector2( 4, 4 )
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+polygon = PoolVector2Array( 16, 16, 16, 32, 32, 32, 32, 16 )
+
+[node name="Light2" type="Polygon2D" parent="DragAndDropLayer/DiskCoverCPU/FrontOutline/Light1"]
+position = Vector2( 24, 0 )
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+polygon = PoolVector2Array( 16, 16, 16, 32, 32, 32, 32, 16 )
+
+[node name="Light3" type="Polygon2D" parent="DragAndDropLayer/DiskCoverCPU/FrontOutline/Light1"]
+position = Vector2( 48, 0 )
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+polygon = PoolVector2Array( 16, 16, 16, 32, 32, 32, 32, 16 )
+
+[node name="Long" type="Line2D" parent="DragAndDropLayer/DiskCoverCPU/FrontOutline"]
+points = PoolVector2Array( 24, 48, 24, 88, 536, 88, 536, 48, 22, 48 )
+width = 4.0
+default_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[node name="Line2D" type="Line2D" parent="DragAndDropLayer/DiskCoverCPU/FrontOutline"]
+points = PoolVector2Array( 8, 104, 536, 104 )
+width = 4.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="Slots" type="Node2D" parent="DragAndDropLayer/DiskCoverCPU/FrontOutline"]
+
+[node name="Slot1" type="Polygon2D" parent="DragAndDropLayer/DiskCoverCPU/FrontOutline/Slots"]
+position = Vector2( 8, 0 )
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+polygon = PoolVector2Array( 16, 136, 16, 140, 248, 140, 248, 136 )
+
+[node name="Label" type="Label" parent="DragAndDropLayer/DiskCoverCPU/FrontOutline/Slots/Slot1"]
+margin_left = 16.0
+margin_top = 120.0
+margin_right = 76.0
+margin_bottom = 137.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+text = "SLOT 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot2" type="Polygon2D" parent="DragAndDropLayer/DiskCoverCPU/FrontOutline/Slots"]
+position = Vector2( 264, 0 )
+color = Color( 0.145098, 0.145098, 0.164706, 1 )
+polygon = PoolVector2Array( 16, 136, 16, 140, 248, 140, 248, 136 )
+
+[node name="Label2" type="Label" parent="DragAndDropLayer/DiskCoverCPU/FrontOutline/Slots/Slot2"]
+margin_left = 16.0
+margin_top = 120.0
+margin_right = 76.0
+margin_bottom = 137.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+text = "SLOT 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D2" type="Line2D" parent="DragAndDropLayer/DiskCoverCPU"]
+points = PoolVector2Array( -8, 0, 616, 0 )
+width = 2.0
+default_color = Color( 0, 0, 0, 1 )

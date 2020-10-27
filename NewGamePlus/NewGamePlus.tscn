@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://NewCPU/NewCPU.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NewMonitor/Monitor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://NewGamePlus/NewGamePlus.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Background" type="Panel" parent="."]
+margin_right = 1288.0
+margin_bottom = 704.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Table" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( -8, 192, 11.554, 192.028, 8, 256, 8, 448, 16, 552, 184, 560, 224, 560, 192, 568, 192, 608, 232, 616, 304, 624, 376, 624, 448, 616, 488, 608, 488, 568, 456, 560, 504, 560, 664, 552, 672, 448, 672, 256, 668.668, 192.684, 688, 192, 688, 312, 1256, 312, 1256, 192, 1288, 192, 1288, 728, -8, 728 )
+
+[node name="Monitor" parent="." instance=ExtResource( 2 )]
+position = Vector2( 16, 32 )
+
+[node name="CPU" parent="." instance=ExtResource( 1 )]
+position = Vector2( 688, 80 )
+[connection signal="game_ended" from="Monitor" to="." method="_on_Monitor_game_ended"]
+[connection signal="hook_acquired" from="Monitor" to="." method="_on_Monitor_hook_acquired"]
+[connection signal="inserted_disk" from="CPU" to="." method="disk_inserted"]
+[connection signal="removed_disk" from="CPU" to="." method="disk_removed"]

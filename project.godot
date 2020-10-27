@@ -1,0 +1,66 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Disk",
+"language": "GDScript",
+"path": "res://CPU/Disk.gd"
+} ]
+_global_script_class_icons={
+"Disk": ""
+}
+
+[application]
+
+config/name="InstallGuide"
+run/main_scene="res://MainLevel2/MainLevel2.tscn"
+boot_splash/bg_color=Color( 0.145098, 0.145098, 0.164706, 1 )
+config/icon="res://icon.png"
+
+[autoload]
+
+AudioPlayer="*res://AudioPlayer/AudioPlayer.tscn"
+GlobalVars="*res://GlobalVars/GlobalVars.gd"
+SfxPlayer="*res://AudioPlayer/SFXPlayer.tscn"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[input]
+
+ui_m1={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="Disk"
+2d_physics/layer_2="CPUInterior"
+2d_physics/layer_3="DiskDetection"
+2d_physics/layer_4="DiskPoints"
+2d_physics/layer_5="Player"
+2d_physics/layer_6="Hook"
+2d_physics/layer_7="Ground"
+2d_physics/layer_8="Border"
+2d_physics/layer_9="GameDetection"
+2d_physics/layer_10="FakeCursorBorder"
+2d_physics/layer_11="FakeCursor"
+2d_physics/layer_20="GuidePage"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

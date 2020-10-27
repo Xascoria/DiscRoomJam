@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://GuidePages/PageScript.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://Resources/Fragmentcore.otf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 22
+extra_spacing_bottom = -2
+font_data = SubResource( 6 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 192, 272 )
+
+[node name="Panel" type="Panel"]
+anchor_right = 0.3
+anchor_bottom = 0.756
+margin_right = 3.05176e-05
+margin_bottom = -0.320007
+rect_min_size = Vector2( 384, 544 )
+rect_pivot_offset = Vector2( 384, 0 )
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 368.0
+margin_bottom = 528.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+text = "Short on-site investigations made by the response teams gathered the following findings: 16 corpses (Presumably all Reactor 2 Personnel, identifications not possible within the small timeframe), traces of AN/FO near the explosion origin, suggesting intentional sabotage of the reactor, likely by one/multiple on-site personnel. The responses team also recovered: (3) Documents and records detailing operations of Reactor 2 on October 31 between 10-11am, with no abnormal activities occurring at that time, (Documents on 11am to 12pm was not recovered) (16) Audio discs from the handheld transceivers of the deceased personnel, containing 3 hours of recordings each. (5) Magnetic tapes of surveillance footages, all were corrupted by the radiation. "
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2148007936
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 192, 272 )
+shape = SubResource( 2 )
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
