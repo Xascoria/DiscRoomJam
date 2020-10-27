@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/key2.wav-e61dff8972bbe217111267cbaff2f02e.sample"
+
+[deps]
+
+source_file="res://Resources/key2.wav"
+dest_files=[ "res://.import/key2.wav-e61dff8972bbe217111267cbaff2f02e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

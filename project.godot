@@ -25,6 +25,12 @@ run/main_scene="res://MainLevel2/MainLevel2.tscn"
 boot_splash/bg_color=Color( 0.145098, 0.145098, 0.164706, 1 )
 config/icon="res://icon.png"
 
+[autoload]
+
+AudioPlayer="*res://AudioPlayer/AudioPlayer.tscn"
+GlobalVars="*res://GlobalVars/GlobalVars.gd"
+SfxPlayer="*res://AudioPlayer/SFXPlayer.tscn"
+
 [display]
 
 window/size/width=1280

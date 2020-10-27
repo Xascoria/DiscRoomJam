@@ -17,7 +17,7 @@ export var drag_id := 0
 #Communicate with parent
 signal being_dragged(drag_id)
 signal stopped_drag(drag_id)
-const offset := Vector2(-96,-96)
+var offset := Vector2()
 
 func _on_Root_mouse_entered():
 	hovering = true
@@ -33,14 +33,17 @@ func _physics_process(delta):
 	if holding_m1 and allow_fresh_drag:
 		if score_keeper.current_drag_id == self.drag_id or score_keeper.current_drag_id == -1:
 			if not dragging:
+				SfxPlayer.play_kacha()
 				dragging = true
 				emit_signal("being_dragged", drag_id)
-			var destination = get_global_mouse_position() - global_position + offset
+				offset = get_local_mouse_position() * 0.9
+			var destination = get_global_mouse_position() - global_position - offset
 
-			move_and_slide(destination*50)
+			move_and_slide(destination*90)
 			#set_global_position( get_global_mouse_position() + offset )
 	else:
 		if dragging:
+			SfxPlayer.play_tick()
 			emit_signal("stopped_drag", drag_id)
 			dragging = false
 

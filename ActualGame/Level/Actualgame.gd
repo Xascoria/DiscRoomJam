@@ -31,16 +31,17 @@ func _physics_process(delta):
 	#get_controls_from_keys()
 	$Player.controls_given = controls
 	if 5 in controls:
-		$ScreenBorder/Cursor.move_and_collide(Vector2(0,-8))
+		$ScreenBorder/Cursor.move_and_collide(Vector2(0,-4))
 	if 6 in controls:
-		$ScreenBorder/Cursor.move_and_collide(Vector2(0,8))
+		$ScreenBorder/Cursor.move_and_collide(Vector2(0,4))
 	if 7 in controls:
-		$ScreenBorder/Cursor.move_and_collide(Vector2(-8,0))
+		$ScreenBorder/Cursor.move_and_collide(Vector2(-4,0))
 	if 8 in controls:
-		$ScreenBorder/Cursor.move_and_collide(Vector2(8,0))
+		$ScreenBorder/Cursor.move_and_collide(Vector2(4,0))
 	$Player.fake_cursor_pos = $ScreenBorder/Cursor.global_position
 
 func get_controls_from_keys():
+	controls = []
 	if Input.is_key_pressed(KEY_E):
 		controls.append(1)
 	if Input.is_key_pressed(KEY_D):

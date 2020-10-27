@@ -1,17 +1,106 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://NewCPU/NewCPU.tscn" type="PackedScene" id=1]
 [ext_resource path="res://NewMonitor/Monitor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://MainLevel2/MainLevel2.gd" type="Script" id=3]
+[ext_resource path="res://FakeMonitor/CustomMonitor.tscn" type="PackedScene" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Resources/Modeseven-L3n5.ttf"
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = SubResource( 2 )
 
 [node name="Root" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="Background" type="Panel" parent="."]
+margin_right = 1288.0
+margin_bottom = 704.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Table" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( -8, 192, 11.554, 192.028, 8, 256, 8, 448, 16, 552, 184, 560, 224, 560, 192, 568, 192, 608, 232, 616, 304, 624, 376, 624, 448, 616, 488, 608, 488, 568, 456, 560, 504, 560, 664, 552, 672, 448, 672, 256, 668.668, 192.684, 688, 192, 688, 312, 1256, 312, 1256, 192, 1288, 192, 1288, 728, -8, 728 )
+
 [node name="Monitor" parent="." instance=ExtResource( 2 )]
 position = Vector2( 16, 32 )
 
+[node name="FakeMonitor" parent="." instance=ExtResource( 4 )]
+position = Vector2( 16, 32 )
+
 [node name="CPU" parent="." instance=ExtResource( 1 )]
-position = Vector2( 688, 40 )
+position = Vector2( 688, 80 )
+
+[node name="Tutorial" type="Node" parent="."]
+
+[node name="First" type="Node2D" parent="Tutorial"]
+visible = false
+position = Vector2( 32, 648 )
+
+[node name="Label" type="Label" parent="Tutorial/First"]
+margin_right = 864.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+text = "You don't have a keyboard or a mouse."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Second" type="Node2D" parent="Tutorial"]
+visible = false
+position = Vector2( 32, 648 )
+
+[node name="Label" type="Label" parent="Tutorial/Second"]
+margin_right = 864.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+text = "These might helps."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Third" type="Node2D" parent="Tutorial"]
+visible = false
+position = Vector2( 32, 648 )
+
+[node name="Label" type="Label" parent="Tutorial/Third"]
+margin_right = 864.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+text = "You'll need more of them."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EventTimer" type="Timer" parent="Tutorial"]
+wait_time = 4.0
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 51, 171 )
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.45, 0.45 )
+
+[node name="Tween" type="Tween" parent="Camera2D"]
+
+[node name="KillTimer" type="Timer" parent="Camera2D"]
+wait_time = 2.0
+one_shot = true
+[connection signal="game_ended" from="Monitor" to="." method="_on_Monitor_game_ended"]
 [connection signal="hook_acquired" from="Monitor" to="." method="_on_Monitor_hook_acquired"]
 [connection signal="inserted_disk" from="CPU" to="." method="disk_inserted"]
 [connection signal="removed_disk" from="CPU" to="." method="disk_removed"]
+[connection signal="timeout" from="Tutorial/EventTimer" to="." method="_on_EventTimer_timeout"]
+[connection signal="timeout" from="Camera2D/KillTimer" to="." method="_on_KillTimer_timeout"]

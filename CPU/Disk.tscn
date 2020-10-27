@@ -1,16 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://CPU/Disk.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 4 )
-
-[sub_resource type="DynamicFontData" id=2]
-font_path = "res://Resources/NotoSerifJP-SemiBold.otf"
-
-[sub_resource type="DynamicFont" id=3]
-size = 40
-font_data = SubResource( 2 )
 
 [sub_resource type="DynamicFontData" id=4]
 font_path = "res://Resources/Modeseven-L3n5.ttf"
@@ -73,17 +66,6 @@ position = Vector2( 0, -8 )
 points = PoolVector2Array( 16, 96, 16, 192, 176, 192, 176, 96, 16, 96, 16, 120 )
 width = 4.0
 default_color = Color( 0.145098, 0.145098, 0.164706, 1 )
-
-[node name="JapSymbol" type="Label" parent="Appearance/TextboxOutline"]
-margin_left = 24.0
-margin_top = 96.0
-margin_right = 104.0
-margin_bottom = 160.0
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="SerialNumber" type="Label" parent="Appearance/TextboxOutline"]
 margin_left = 24.0

@@ -47,11 +47,10 @@ func _physics_process(delta):
 	elif current_jump_force != initial_jump_force:
 		current_jump_force = 0
 
-	if is_on_ceiling():
+	if is_on_ceiling() and current_jump_force > 0:
 		current_jump_force = 0
 
 	self.move_and_slide(current_velocity + chain_velocity, Vector2(0,-1), false, 4, deg2rad(85))
-
 
 	$Grappling.rotation_degrees += rad2deg( $Grappling.get_angle_to( fake_cursor_pos ) ) + 90
 		

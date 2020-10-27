@@ -40,7 +40,7 @@ extents = Vector2( 80, 8 )
 extents = Vector2( 192, 8 )
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 376, 8 )
+extents = Vector2( 304, 8 )
 
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 80, 8 )
@@ -63,23 +63,23 @@ extents = Vector2( 32, 8 )
 [sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 329.802, 8 )
 
-[sub_resource type="DynamicFontData" id=22]
+[sub_resource type="DynamicFontData" id=20]
 font_path = "res://Resources/Modeseven-L3n5.ttf"
 
+[sub_resource type="DynamicFont" id=21]
+font_data = SubResource( 20 )
+
+[sub_resource type="DynamicFont" id=22]
+font_data = SubResource( 20 )
+
 [sub_resource type="DynamicFont" id=23]
-font_data = SubResource( 22 )
-
-[sub_resource type="DynamicFont" id=24]
-font_data = SubResource( 22 )
-
-[sub_resource type="DynamicFont" id=25]
 extra_spacing_bottom = -5
-font_data = SubResource( 22 )
+font_data = SubResource( 20 )
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 24, 24 )
 
-[sub_resource type="RectangleShape2D" id=21]
+[sub_resource type="RectangleShape2D" id=25]
 extents = Vector2( 16, 24 )
 
 [node name="Root" type="Node2D"]
@@ -503,7 +503,7 @@ margin_left = 1.0
 margin_top = 3.0
 margin_right = 28.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 23 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
 text = "A"
 __meta__ = {
@@ -519,7 +519,7 @@ margin_left = 1.0
 margin_top = 3.0
 margin_right = 28.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 23 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
 text = "D"
 __meta__ = {
@@ -531,7 +531,7 @@ margin_left = -38.0
 margin_top = 8.0
 margin_right = 102.0
 margin_bottom = 25.0
-custom_fonts/font = SubResource( 24 )
+custom_fonts/font = SubResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "USE    AND    TO WALK"
 __meta__ = {
@@ -550,7 +550,7 @@ margin_left = 1.0
 margin_top = 3.0
 margin_right = 28.0
 margin_bottom = 35.0
-custom_fonts/font = SubResource( 23 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 0.145098, 0.145098, 0.164706, 1 )
 text = "W"
 __meta__ = {
@@ -562,7 +562,7 @@ margin_left = 36.0
 margin_top = 8.0
 margin_right = 106.0
 margin_bottom = 25.0
-custom_fonts/font = SubResource( 24 )
+custom_fonts/font = SubResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "TO JUMP"
 __meta__ = {
@@ -578,7 +578,7 @@ margin_left = -48.0
 margin_top = -16.0
 margin_right = 172.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 25 )
+custom_fonts/font = SubResource( 23 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "AIM THE GRAPPLING HOOK WITH MOUSE
 
@@ -590,7 +590,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 144, 648 )
+position = Vector2( 128, 664 )
 gravity = 15
 initial_jump_force = 450
 air_penalty = 0.5
@@ -617,7 +617,7 @@ collision_layer = 256
 collision_mask = 2147483664
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hook"]
-shape = SubResource( 20 )
+shape = SubResource( 24 )
 
 [node name="Grappling" type="Sprite" parent="Hook"]
 scale = Vector2( 3, 4 )
@@ -629,7 +629,7 @@ collision_layer = 256
 collision_mask = 2147483664
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
-shape = SubResource( 20 )
+shape = SubResource( 24 )
 
 [node name="Line2D" type="Line2D" parent="End"]
 position = Vector2( 6, 0 )
@@ -662,6 +662,6 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenBorder/Cursor"]
 position = Vector2( 0, 16 )
-shape = SubResource( 21 )
+shape = SubResource( 25 )
 [connection signal="body_entered" from="Hook" to="." method="_on_Hook_body_entered"]
 [connection signal="body_entered" from="End" to="." method="_on_End_body_entered"]

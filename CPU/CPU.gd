@@ -10,6 +10,7 @@ func _ready():
 		i.connect("being_dragged", self, "started_drag")
 		i.connect("stopped_drag", self, "stopped_drag")
 		
+		
 
 onready var disc_refs = {
 	1: $DragAndDropLayer/Disc1,
@@ -60,16 +61,38 @@ signal inserted_disk(input_int)
 signal removed_disk(input_int)
 	
 func _on_InputArea1_body_entered(body):
+	SfxPlayer.play_keys()
 	emit_signal("inserted_disk", body.input_int)
 	
 func _on_InputArea1_body_exited(body):
 	emit_signal("removed_disk", body.input_int)
 
 func _on_InputArea2_body_entered(body):
+	SfxPlayer.play_keys()
 	emit_signal("inserted_disk", body.input_int)
 
 func _on_InputArea2_body_exited(body):
 	emit_signal("removed_disk", body.input_int)
+
+var first_stack_moved := false
+var second_stack_moved := false
+func move_first_stack() -> void:
+	if not first_stack_moved:
+		for i in range(1,3+1):
+			$DragAndDropLayer/Tween.interpolate_property(
+				disc_refs[i], "position", disc_refs[i].position,disc_refs[i].position + Vector2(-650,0), 1
+			)
+		$DragAndDropLayer/Tween.start()
+		first_stack_moved = true
+
+func move_second_stack() -> void:
+	if not second_stack_moved:
+		for i in range(4,8+1):
+			$DragAndDropLayer/Tween.interpolate_property(
+				disc_refs[i], "position", disc_refs[i].position,disc_refs[i].position + Vector2(-650,0), 1
+			)
+		$DragAndDropLayer/Tween.start()
+		second_stack_moved = true
 
 ###
 ### Deal with collisions and layers
