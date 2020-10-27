@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Disk",
 "language": "GDScript",
-"path": "res://CPU/Disk.gd"
+"path": "res://NewCPU/Disk.gd"
 } ]
 _global_script_class_icons={
 "Disk": ""

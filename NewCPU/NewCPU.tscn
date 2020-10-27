@@ -1,7 +1,9 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://CPU/CPU.gd" type="Script" id=1]
-[ext_resource path="res://CPU/Disk.tscn" type="PackedScene" id=2]
+[ext_resource path="res://NewCPU/CPU.gd" type="Script" id=1]
+[ext_resource path="res://NewCPU/Disk.tscn" type="PackedScene" id=2]
+
+
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Resources/Modeseven-L3n5.ttf"
