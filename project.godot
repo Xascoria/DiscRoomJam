@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="InstallGuide"
-run/main_scene="res://MainLevel2/MainLevel2.tscn"
+run/main_scene="res://Testing/BugTesting.tscn"
 boot_splash/bg_color=Color( 0.145098, 0.145098, 0.164706, 1 )
 config/icon="res://icon.png"
 
@@ -63,4 +63,5 @@ ui_m1={
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"
