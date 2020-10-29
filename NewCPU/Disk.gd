@@ -36,7 +36,7 @@ func _physics_process(delta):
 				SfxPlayer.play_kacha()
 				dragging = true
 				emit_signal("being_dragged", drag_id)
-				offset = get_local_mouse_position() * 0.9
+				offset = get_global_mouse_position() - global_position
 			var destination = get_global_mouse_position() - global_position - offset
 
 			move_and_slide(destination*90)

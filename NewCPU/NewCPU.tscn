@@ -3,8 +3,6 @@
 [ext_resource path="res://NewCPU/CPU.gd" type="Script" id=1]
 [ext_resource path="res://NewCPU/Disk.tscn" type="PackedScene" id=2]
 
-
-
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Resources/Modeseven-L3n5.ttf"
 
@@ -26,7 +24,6 @@ extents = Vector2( 112, 104 )
 [sub_resource type="RectangleShape2D" id=7]
 
 [node name="Root" type="Node2D"]
-scale = Vector2( 0.9, 0.9 )
 script = ExtResource( 1 )
 
 [node name="CPUFront" type="Polygon2D" parent="."]
